@@ -6,5 +6,6 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": true,
   "semicolons": true,
-  "JSX Brackets": true
+  "JSX Brackets": true,
+  "quoteProps": "preserve"
 }

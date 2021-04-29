@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+}
+
+.login {
+  margin: 6rem;
+  padding: 2rem;
+  font-size: 1.2rem;
+  border: 1px solid #33691e;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__form label {
+  margin-top: 1.4rem;
+}
+
+.login__form input {
+  font-size: 1.2rem;
+  text-decoration: none;
+  width: 8rem;
+  transition: width 0.2s ease-in-out;
+}
+
+.login__form input:hover,
+.login__form input:focus {
+  outline: none;
+}
+
+.login__form input:focus {
+  width: 100%;
+  border-color: #76ff03;
+  border-width: 1px;
+}
+
+.yourPage {
+  width: 150px;
+  height: 100vh;
+  display: inline-flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.yourPage__ul {
+  border: 1px solid #76ff03;
+}
+
+.yourPage li {
+  list-style: none;
+  margin-top: 3rem;
+}
+.yourPage li:hover {
+  cursor: pointer;
+}
+
+.users {
+  margin-left: 170px;
+  display: none;
+}
+
+.users .canSee {
+  display: block;
+}

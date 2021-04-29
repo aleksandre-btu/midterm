@@ -1,23 +1,19 @@
-import './App.css';
+// import './App.css';
+import { context } from './context/context';
 import Users from './Users';
-import { context } from './contecxt/context';
-import Posts from './Posts';
 import { useState } from 'react';
-import { Redirect, Route } from 'react-router';
+import { Route } from 'react-router';
+import Main from './Main';
 
 function App() {
-  const [posts, setPosts] = useState([]);
-  const [count, setCount] = useState(0);
-  const [id, setId] = useState(null);
+  const [token, setToken] = useState('');
+  const [users, setUsers] = useState([]);
+  const [show, setShow] = useState(false);
   return (
     <div>
-      <Route path="/" exact>
-        <Redirect to="/user" />
-      </Route>
-      <context.Provider value={{ setCount, setPosts, posts, count, id, setId }}>
-        <Route path="/user" component={Users} />
-
-        <Route path="/posts" component={Posts} />
+      <context.Provider
+        value={{ token, setToken, users, setUsers, show, setShow }}>
+        <Route path="/" exact component={Main} />
       </context.Provider>
     </div>
   );

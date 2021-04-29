@@ -1,39 +1,28 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { context } from './contecxt/context';
+import React, { useContext, useEffect } from 'react';
+import { context } from './context/context';
+import classes from './App.module.css';
 
 const Users = () => {
-  const { setPosts, id, setId, setCount } = useContext(context);
+  const { users } = useContext(context);
 
-  const onClickHandler = (event) => {
-    event.preventDefault();
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
-      .then((response) => response.json())
-      .then((data) => setPosts(data));
-  };
+  useEffect(() => {
+    console.log(users);
+  }, [users]);
 
   return (
-    <div>
-      <form>
-        <label htmlFor="userID"> Please Enter Your User ID </label>
-        <input
-          onChange={(e) => setId(e.target.value)}
-          id="userId"
-          placeholder="your ID"
-        />
-        <label htmlFor="postsCount">
-          Please Enter How Many Posts You Want To See
-        </label>
-        <input
-          onChange={(e) => setCount(e.target.value)}
-          id="postsCount"
-          placeholder="Posts Count"
-        />
-
-        <button type="submit" onClick={onClickHandler}>
-          <Link to="/posts">Continue</Link>
-        </button>
-      </form>
+    <div className={classes.data}>
+      {users && users.data.length > 0 ? (
+        users.data.map((user, index) => {
+          return (
+            <div key={index}>
+              <h1>{user.name}</h1>
+              {/* <p>{e.body}</p> */}
+            </div>
+          );
+        })
+      ) : (
+        <div>Wait a little</div>
+      )}
     </div>
   );
 };
